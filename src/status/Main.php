@@ -25,15 +25,13 @@ class Main extends PluginBase implements Listener{
         }
         $this->world = new Config($this->getDataFolder() . "spawnworld.yml", Config::YAML,array('JoinWorld' => 'world'));
         $this->Item = new Config($this->getDataFolder() . "SetItem.yml", Config::YAML,array('スポーン地点アイテム' => '280'));
-
-		$this->getLogger()->notice(TextFormat::GOLD."statusscreen-ver.7.5.1を読み込みました。 by mixpowder");
-		$this->api = $this->getServer()->getPluginManager()->getPlugin("EconomyAPI");
+	$this->api = $this->getServer()->getPluginManager()->getPlugin("EconomyAPI");
         if($this->api == null){
 		$this->getLogger()->error("EconomyAPIが見つかりません　サーバーを停止中");
 		$this->getServer()->shutdown();
-		}else{
+	}else{
 		$this->getLogger()->info(TextFormat::DARK_AQUA."EconomyAPIを見つけました。");
-		}
+	}
     }
 }
 
@@ -58,7 +56,7 @@ class Send extends Task{
 			$coin = MixCoinSystem::getInstance()->GetCoin($name);
 			switch ($player->getDirection()){
 
-            case 0:
+                        case 0:
 				$dire = "東";
 			break;
 
